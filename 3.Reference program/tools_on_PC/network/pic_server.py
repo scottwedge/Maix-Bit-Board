@@ -44,7 +44,7 @@ def receiveThread(conn):
                 break
             if len(client_data) > 1024*30:
                 break
-        print("recive end, pic len:", len(img))
+        print("receive end, pic len:", len(img))
         
         if not img.startswith(b'\xFF\xD8') or not img.endswith(b'\xFF\xD9'):
             print("image error")
@@ -56,7 +56,7 @@ def receiveThread(conn):
             surface = pygame.image.load("tmp.jpg").convert()
             screen.blit(surface,(0, 0))
             pygame.display.update()
-            print("recieve ok")
+            print("receive ok")
         except Exception as e:
             print(e)
     conn.close()
